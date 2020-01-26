@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+
+    <item
+        android:icon="@drawable/ic_notifications"
+        app:showAsAction="always"
+        android:title="notification"
+        android:id="@+id/menuNotification"
+        >
+    </item>
+
+
+    <item
+        android:icon="@drawable/ic_shopping_cart"
+        app:showAsAction="always"
+        android:title="shopping"
+        android:id="@+id/menuShopping"
+
+        ></item>
+
+    <item
+        android:icon="@drawable/ic_person"
+        app:showAsAction="always"
+        android:title="person"
+        android:id="@+id/menuPerson"
+
+        ></item>
+
+</menu>
