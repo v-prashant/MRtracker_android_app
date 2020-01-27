@@ -21,12 +21,4 @@
 
         ></item>
 
-    <item
-        android:icon="@drawable/ic_person"
-        app:showAsAction="always"
-        android:title="person"
-        android:id="@+id/menuPerson"
-
-        ></item>
-
 </menu>

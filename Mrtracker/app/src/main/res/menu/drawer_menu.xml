@@ -1,24 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:showIn="navigation_view">
 
 
-    <group android:checkableBehavior="single">
-            <item
-                android:id="@+id/home"
-                android:title="home"
-                />
-            <item
-                android:id="@+id/homopathic"
-                android:title="homopathic"
-                />
-            <item
-                android:id="@+id/allopathic"
-                android:title="allopathic"
-                />
-    </group>
 
 
+    <item
+        app:showAsAction="always"
+        android:id="@+id/home1"
+        android:title="Home" />
+
+
+
+    <item
+        android:id="@+id/category"
+        android:title="Shop By Categories">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/allopathic"
+                    android:title="Allopathic" />
+                <item
+                    android:id="@+id/homopathic"
+                    android:title="Homoeopathy" />
+                <item
+                    android:id="@+id/ayurvedic"
+                    android:title="Ayurvedic" />
+
+            </group>
+        </menu>
+    </item>
+
+
+    <item>
+        <menu>
+            <group android:checkableBehavior="single">
+
+                <item
+                    android:id="@+id/sendFeedback"
+                    android:title="Send Feedback" />
+                <item
+                    android:id="@+id/contactUs"
+                    android:title="Contact Us" />
+
+            </group>
+
+        </menu>
+    </item>
 
 </menu>
