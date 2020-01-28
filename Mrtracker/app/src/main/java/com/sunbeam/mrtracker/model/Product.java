@@ -16,14 +16,15 @@ public class Product {
     }
 
 
-    public Product(int id, String name, int price, int discount, String image, int priceWithDiscount) {
+    public Product(int id, String name, int price, int discount, String image, int priceWithDiscount, String description) {
         this.id = id;
         this.name = name;
         this.price = price;
         this.discount = discount;
         this.priceWithDiscount = priceWithDiscount;
-//        this.description = description;
-       this.image = image;
+        this.image = image;
+        this.description = description;
+
      }
 
     public int getId() {
@@ -66,14 +67,14 @@ public class Product {
           this.priceWithDiscount = priceWithDiscount;
       }
 
-//    public String getDescription() {
-//        return description;
-//    }
-//
-//    public void setDescription(String description) {
-//        this.description = description;
-//    }
-//
+   public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
 
     public String getImage() {
         return image;

@@ -33,6 +33,7 @@ import com.koushikdutta.ion.Ion;
 import com.sunbeam.mrtracker.R;
 import com.sunbeam.mrtracker.adapter.ProductAdapter;
 import com.sunbeam.mrtracker.model.Product;
+import com.sunbeam.mrtracker.utils.urls;
 import com.synnapps.carouselview.CarouselView;
 import com.synnapps.carouselview.ImageClickListener;
 import com.synnapps.carouselview.ImageListener;
@@ -41,8 +42,7 @@ import java.util.ArrayList;
 
 
 
-public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
-
+public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener,ProductAdapter.ContactAdapterActionListener {
 
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle toggle;
@@ -74,12 +74,12 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                     imageView.setImageResource(imageArray[position]);
             }
         });
-        carouselView.setImageClickListener(new ImageClickListener() {
-            @Override
-            public void onClick(int position) {
-
-            }
-        });
+//        carouselView.setImageClickListener(new ImageClickListener() {
+//            @Override
+//            public void onClick(int position) {
+//
+//            }
+//        });
 
 
         drawerLayout = (DrawerLayout) findViewById(R.id.drawerXml);
@@ -94,7 +94,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
         recyclerView = findViewById(R.id.recyclerview);
 
-        adapter = new ProductAdapter(this,products);
+        adapter = new ProductAdapter(this,products,this);
         recyclerView.setAdapter(adapter);
 
         GridLayoutManager layoutManager = new GridLayoutManager(this,2);
@@ -110,6 +110,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         edittext = findViewById(R.id.search);
 
         setEdittext(edittext);
+        setRecyclerView(recyclerView);
 
 
     }
@@ -124,7 +125,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         products.clear();
 
 
-        String url = "http://192.168.2.10:4000/login/dashboard/product";
+        String url = urls.home();
 
         Ion.with(this).load("GET",url).asJsonObject().setCallback(new FutureCallback <JsonObject>() {
             @Override
@@ -145,9 +146,10 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                         int discount = object.get("discount").getAsInt();
                         String image = object.get("image").getAsString();
                         int priceWithDiscount = object.get("priceWithDiscount").getAsInt();
+                        String description = object.get("description").getAsString();
 
 
-                        products.add(new Product(id, name, price, discount, image, priceWithDiscount));
+                        products.add(new Product(id, name, price, discount, image, priceWithDiscount,description));
 
 
                     }
@@ -245,6 +247,8 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 return false;
             }
         });
+
+
     }
 
 
@@ -256,5 +260,28 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     }
 
 
+    public void setRecyclerView(RecyclerView recyclerView) {
+        this.recyclerView = recyclerView;
+
+
+
+    };
+
+    @Override
+    public void onDetails(int i) {
+
+        Product product = products.get(i);
+        //Toast.makeText(this,product.getName(),Toast.LENGTH_SHORT).show();
+
+        Intent intent = new Intent(this,ProductDetails.class);
+        intent.putExtra("name",product.getName());
+        intent.putExtra("price",product.getPrice());
+        intent.putExtra("discount",product.getDiscount());
+        intent.putExtra("description",product.getDescription());
+        intent.putExtra("image",product.getImage());
+        intent.putExtra("priceWithDiscount",product.getPriceWithDiscount());
+        intent.putExtra("id",product.getId());
+        startActivity(intent);
+    }
 }
 

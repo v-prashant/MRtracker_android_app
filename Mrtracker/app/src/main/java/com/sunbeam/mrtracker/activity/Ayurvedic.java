@@ -16,10 +16,11 @@ import com.koushikdutta.ion.Ion;
 import com.sunbeam.mrtracker.R;
 import com.sunbeam.mrtracker.adapter.ProductAdapter;
 import com.sunbeam.mrtracker.model.Product;
+import com.sunbeam.mrtracker.utils.urls;
 
 import java.util.ArrayList;
 
-public class Ayurvedic extends AppCompatActivity {
+            public class Ayurvedic extends AppCompatActivity implements ProductAdapter.ContactAdapterActionListener {
 
     RecyclerView recyclerView;
     ProductAdapter adapter;
@@ -31,7 +32,7 @@ public class Ayurvedic extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.recyclerview);
 
-        adapter = new ProductAdapter(this,products);
+        adapter = new ProductAdapter(this,products,this);
         recyclerView.setAdapter(adapter);
 
         GridLayoutManager layoutManager = new GridLayoutManager(this,2);
@@ -66,7 +67,7 @@ public class Ayurvedic extends AppCompatActivity {
         products.clear();
 
 
-        String url = "http://192.168.2.10:4000/MRlogin/ayurvedic";
+        String url = urls.ayurvedic();
 
         Ion.with(this).load("GET",url).asJsonObject().setCallback(new FutureCallback<JsonObject>() {
             @Override
@@ -87,9 +88,9 @@ public class Ayurvedic extends AppCompatActivity {
                         int discount = object.get("discount").getAsInt();
                         String image = object.get("image").getAsString();
                         int priceWithDiscount = object.get("priceWithDiscount").getAsInt();
+                        String description = object.get("description").getAsString();
 
-
-                        products.add(new Product(id, name, price, discount, image, priceWithDiscount));
+                        products.add(new Product(id, name, price, discount, image, priceWithDiscount,description));
 
 
                     }
@@ -101,4 +102,8 @@ public class Ayurvedic extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onDetails(int i) {
+
+    }
 }

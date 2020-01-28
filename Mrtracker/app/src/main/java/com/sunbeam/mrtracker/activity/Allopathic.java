@@ -16,11 +16,12 @@ import com.koushikdutta.ion.Ion;
 import com.sunbeam.mrtracker.R;
 import com.sunbeam.mrtracker.adapter.ProductAdapter;
 import com.sunbeam.mrtracker.model.Product;
+import com.sunbeam.mrtracker.utils.urls;
 
 import java.util.ArrayList;
 
 
-public class Allopathic extends AppCompatActivity {
+public class Allopathic extends AppCompatActivity implements ProductAdapter.ContactAdapterActionListener {
 
     RecyclerView recyclerView;
     ProductAdapter adapter;
@@ -34,7 +35,7 @@ public class Allopathic extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.recyclerview);
 
-        adapter = new ProductAdapter(this,products);
+        adapter = new ProductAdapter(this,products,this);
         recyclerView.setAdapter(adapter);
 
         GridLayoutManager layoutManager = new GridLayoutManager(this,2);
@@ -69,8 +70,8 @@ public class Allopathic extends AppCompatActivity {
     private void loadproducts(){
         products.clear();
 
-
-        String url = "http://192.168.2.10:4000/MRlogin/allopathic";
+        // to getting  url
+        String url = urls.allopathic();
 
         Ion.with(this).load("GET",url).asJsonObject().setCallback(new FutureCallback<JsonObject>() {
             @Override
@@ -91,9 +92,9 @@ public class Allopathic extends AppCompatActivity {
                         int discount = object.get("discount").getAsInt();
                         String image = object.get("image").getAsString();
                         int priceWithDiscount = object.get("priceWithDiscount").getAsInt();
+                        String description = object.get("description").getAsString();
 
-
-                        products.add(new Product(id, name, price, discount, image, priceWithDiscount));
+                        products.add(new Product(id, name, price, discount, image, priceWithDiscount,description));
 
 
                     }
@@ -105,6 +106,11 @@ public class Allopathic extends AppCompatActivity {
 
     }
 
+
+    @Override
+    public void onDetails(int i) {
+
+    }
 }
 
 

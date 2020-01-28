@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.Search"></activity>
+        <activity android:name=".activity.ProductDetails"></activity>
+        <activity android:name=".activity.Search" />
         <activity android:name=".activity.Ayurvedic" />
         <activity android:name=".activity.Homoeopathy" />
         <activity android:name=".activity.Allopathic" />
