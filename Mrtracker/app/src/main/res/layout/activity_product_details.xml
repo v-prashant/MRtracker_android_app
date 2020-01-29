@@ -115,6 +115,8 @@
 
 
         <Button
+            android:backgroundTint="#98fb98"
+            android:onClick="onAddtoCart"
             android:layout_marginTop="20dp"
             android:layout_marginRight="7dp"
             android:layout_width="match_parent"

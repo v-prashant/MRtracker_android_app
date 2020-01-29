@@ -5,7 +5,7 @@ package com.sunbeam.mrtracker.utils;
 public class urls {
 
 
-    static String url = "http://192.168.2.10";
+    static String url = "http://192.168.43.127";
 
 
     public static String images(){
@@ -27,6 +27,10 @@ public class urls {
         return  url + ":4000/MRlogin/search";
     }
 
+
+    public static String login(){
+        return  url + ":4000/MRlogin";
+    }
 
 }
 

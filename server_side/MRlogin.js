@@ -5,7 +5,7 @@ const cryptoJs = require('crypto-js')
 
 const router = express.Router()
  
-
+// to check that user is logged in 
 router.post('/', (request, response) => {
     const {email,password} = request.body
     const connection = db.connect1()
@@ -28,9 +28,6 @@ router.post('/', (request, response) => {
         
     })
 })
-
-
-
 
 
 

@@ -1,5 +1,6 @@
 package com.sunbeam.mrtracker.activity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.ActionBar;
@@ -106,5 +107,18 @@ public class Homoeopathy extends AppCompatActivity implements ProductAdapter.Con
     @Override
     public void onDetails(int i) {
 
+
+        Product product = products.get(i);
+        //Toast.makeText(this,product.getName(),Toast.LENGTH_SHORT).show();
+
+        Intent intent = new Intent(this,ProductDetails.class);
+        intent.putExtra("name",product.getName());
+        intent.putExtra("price",product.getPrice());
+        intent.putExtra("discount",product.getDiscount());
+        intent.putExtra("description",product.getDescription());
+        intent.putExtra("image",product.getImage());
+        intent.putExtra("priceWithDiscount",product.getPriceWithDiscount());
+        intent.putExtra("id",product.getId());
+        startActivity(intent);
     }
 }

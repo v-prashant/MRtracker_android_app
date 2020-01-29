@@ -21,7 +21,7 @@ import com.sunbeam.mrtracker.utils.urls;
 
 import java.util.ArrayList;
 
-public class Search extends AppCompatActivity implements ProductAdapter.ContactAdapterActionListener {
+        public class Search extends AppCompatActivity implements ProductAdapter.ContactAdapterActionListener {
 
 
     RecyclerView recyclerView;
@@ -118,5 +118,17 @@ public class Search extends AppCompatActivity implements ProductAdapter.ContactA
     @Override
     public void onDetails(int i) {
 
+        Product product = products.get(i);
+        //Toast.makeText(this,product.getName(),Toast.LENGTH_SHORT).show();
+
+        Intent intent = new Intent(this,ProductDetails.class);
+        intent.putExtra("name",product.getName());
+        intent.putExtra("price",product.getPrice());
+        intent.putExtra("discount",product.getDiscount());
+        intent.putExtra("description",product.getDescription());
+        intent.putExtra("image",product.getImage());
+        intent.putExtra("priceWithDiscount",product.getPriceWithDiscount());
+        intent.putExtra("id",product.getId());
+        startActivity(intent);
     }
 }

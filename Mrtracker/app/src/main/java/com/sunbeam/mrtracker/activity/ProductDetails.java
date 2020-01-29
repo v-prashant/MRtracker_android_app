@@ -1,8 +1,10 @@
 package com.sunbeam.mrtracker.activity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -113,4 +115,16 @@ public class ProductDetails extends AppCompatActivity {
         }
 
     }
+
+    public void onAddtoCart(View view) {
+
+        //shared prefrence
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        int status = preferences.getInt("login_status",0);
+
+        if(status != 1){
+            Toast.makeText(this,"You are not logged in first login yourself",Toast.LENGTH_LONG).show();
+        }
+    }
+
 }

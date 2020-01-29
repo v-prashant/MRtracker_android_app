@@ -37,7 +37,6 @@ router.get('/ayurvedic', (request, response) => {
     })
 })
 
-
 router.post('/search',(request,response)=>{
     const {ProductName} = request.body
 

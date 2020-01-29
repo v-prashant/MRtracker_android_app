@@ -32,7 +32,6 @@ router.post('/addcart', (request, response) => {
     })
 })
 
-
 // when user is editing his cart product
 router.put('/cartEdit', (request, response) => {
     const {Quantity,totalAmount,totalDiscount,MRid,productID,orderDetailsTableID} = request.body

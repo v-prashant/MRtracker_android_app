@@ -1,9 +1,14 @@
 package com.sunbeam.mrtracker.activity;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.strictmode.NonSdkApiUsedViolation;
+import android.preference.PreferenceManager;
 import android.support.annotation.MainThread;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -113,6 +118,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         setRecyclerView(recyclerView);
 
 
+
     }
 
     @Override
@@ -164,10 +170,22 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
+
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        int status = preferences.getInt("login_status",0);
+        String username = preferences.getString("username","");
+
         menu.add("My Oredrs");
         menu.add("My Cart");
         menu.add("Clear History");
-        menu.add("LogIn");
+
+        if(status == 1){
+            username = "Logout("+username+")";
+            menu.add(username);
+        }
+        else {
+            menu.add("LogIn/signUp");
+        }
 
         inflater.inflate(R.menu.home_menu, menu);
         return super.onCreateOptionsMenu(menu);
@@ -175,11 +193,18 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+
+
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        String username = preferences.getString("username","");
+        username = "Logout("+username+")";
+
+
         if(item.getItemId() == R.id.menuShopping){
             Toast.makeText(this,"cart",Toast.LENGTH_SHORT).show();
         }
         else if(item.getItemId() == R.id.menuNotification){
-            Toast.makeText(this,"notifucation",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"notifucation box is empty",Toast.LENGTH_SHORT).show();
         }
 
         else if(toggle.onOptionsItemSelected(item)){
@@ -195,9 +220,46 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         else if(item.getTitle().equals("Clear History")){
             Toast.makeText(this,"Clear history",Toast.LENGTH_SHORT).show();
         }
-        else if(item.getTitle().equals("LogIn")){
-            Toast.makeText(this,"Login",Toast.LENGTH_SHORT).show();
+        else if(item.getTitle().equals("LogIn/signUp")){
+            Intent intent = new Intent(this,Login.class);
+            startActivity(intent);
+        } else if(item.getTitle().equals(username)) {
+
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+            builder.setTitle("Conformation");
+            builder.setMessage("Are you confirm to logout");
+
+           // Toast.makeText(this,"hello",Toast.LENGTH_SHORT).show();
+            builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+                    SharedPreferences.Editor editor = preferences.edit();
+                    editor.putInt("login_status",0);
+                    editor.putString("username",null);
+                    editor.putInt("id",0);
+                    editor.apply();
+
+                    Intent refresh = new Intent(getApplicationContext(), HomeActivity.class);
+                    startActivity(refresh);
+                    finish();
+                }
+            });
+
+            builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+
+                    dialog.dismiss();
+                }
+            });
+
+            builder.show();
+
         }
+
 
 
         return super.onOptionsItemSelected(item);
@@ -262,8 +324,6 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
     public void setRecyclerView(RecyclerView recyclerView) {
         this.recyclerView = recyclerView;
-
-
 
     };
 

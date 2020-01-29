@@ -2,14 +2,17 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.sunbeam.mrtracker">
 
+
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/icon"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.ProductDetails"></activity>
+        <activity android:name=".activity.Signup"></activity>
+        <activity android:name=".activity.Login" />
+        <activity android:name=".activity.ProductDetails" />
         <activity android:name=".activity.Search" />
         <activity android:name=".activity.Ayurvedic" />
         <activity android:name=".activity.Homoeopathy" />
@@ -24,3 +27,5 @@
     </application>
 
 </manifest>
+
+
