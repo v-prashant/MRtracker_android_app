@@ -200,11 +200,19 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         username = "Logout("+username+")";
 
 
+        int status = preferences.getInt("login_status",0);
+
         if(item.getItemId() == R.id.menuShopping){
-            Toast.makeText(this,"cart",Toast.LENGTH_SHORT).show();
+            if(status == 1){
+                Intent intent = new Intent(this,Cart.class);
+                startActivity(intent);
+            }else{
+                Toast.makeText(this,"You need first logged in",Toast.LENGTH_SHORT).show();
+            }
+
         }
         else if(item.getItemId() == R.id.menuNotification){
-            Toast.makeText(this,"notifucation box is empty",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"notification box is empty",Toast.LENGTH_SHORT).show();
         }
 
         else if(toggle.onOptionsItemSelected(item)){
@@ -215,7 +223,14 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             Toast.makeText(this,"My orders",Toast.LENGTH_SHORT).show();
         }
         else if(item.getTitle().equals("My Cart")){
-            Toast.makeText(this,"My cart",Toast.LENGTH_SHORT).show();
+
+            if(status == 1){
+                Intent intent = new Intent(this,Cart.class);
+                startActivity(intent);
+            }
+            else{
+                Toast.makeText(this,"you need first logged in",Toast.LENGTH_SHORT).show();
+            }
         }
         else if(item.getTitle().equals("Clear History")){
             Toast.makeText(this,"Clear history",Toast.LENGTH_SHORT).show();
@@ -259,8 +274,6 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             builder.show();
 
         }
-
-
 
         return super.onOptionsItemSelected(item);
     }
@@ -343,5 +356,8 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         intent.putExtra("id",product.getId());
         startActivity(intent);
     }
+
+
+
 }
 

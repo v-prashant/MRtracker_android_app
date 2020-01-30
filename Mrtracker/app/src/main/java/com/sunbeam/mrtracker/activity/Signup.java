@@ -1,11 +1,14 @@
 package com.sunbeam.mrtracker.activity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
@@ -104,6 +107,47 @@ public class Signup extends AppCompatActivity {
         else {
 
             // for user registing method
+
+            String url = urls.signUp();
+
+            JsonObject body = new JsonObject();
+            body.addProperty("username",username);
+            body.addProperty("firstname",firstname);
+            body.addProperty("lastname",lastname);
+            body.addProperty("joindate","1990-01-01");
+            body.addProperty("phoneno",phoneno);
+            body.addProperty("email",email);
+            body.addProperty("password",password);
+
+
+            Ion.with(this).load(url).setJsonObjectBody(body).asJsonObject().setCallback(new FutureCallback<JsonObject>() {
+                @Override
+                public void onCompleted(Exception e, JsonObject result) {
+
+                    String status = result.get("status").getAsString();
+
+                    if(status.equals("success")){
+
+
+                        Toast.makeText(getApplicationContext(),"successfully Registration",Toast.LENGTH_SHORT).show();
+
+                        finish();
+
+
+                        // Intent refresh = new Intent(getApplicationContext(), HomeActivity.class);
+                       //  startActivity(refresh);
+                        // finish();
+                    }
+                    else{
+                        String error = result.get("error").getAsString();
+                        Log.e("Signup",error);
+
+                        Toast.makeText(getApplicationContext(),"Somthing went wrong",Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+
+
 
 
         }
