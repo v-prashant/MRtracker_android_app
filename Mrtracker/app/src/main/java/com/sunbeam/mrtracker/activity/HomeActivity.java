@@ -25,6 +25,7 @@ import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -177,7 +178,6 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
         menu.add("My Oredrs");
         menu.add("My Cart");
-        menu.add("Clear History");
 
         if(status == 1){
             username = "Logout("+username+")";
@@ -214,11 +214,9 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         else if(item.getItemId() == R.id.menuNotification){
             Toast.makeText(this,"notification box is empty",Toast.LENGTH_SHORT).show();
         }
-
         else if(toggle.onOptionsItemSelected(item)){
             return true;
         }
-
         else if(item.getTitle().equals("My Oredrs")){
             Toast.makeText(this,"My orders",Toast.LENGTH_SHORT).show();
         }
@@ -231,9 +229,6 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             else{
                 Toast.makeText(this,"you need first logged in",Toast.LENGTH_SHORT).show();
             }
-        }
-        else if(item.getTitle().equals("Clear History")){
-            Toast.makeText(this,"Clear history",Toast.LENGTH_SHORT).show();
         }
         else if(item.getTitle().equals("LogIn/signUp")){
             Intent intent = new Intent(this,Login.class);
@@ -355,6 +350,8 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         intent.putExtra("priceWithDiscount",product.getPriceWithDiscount());
         intent.putExtra("id",product.getId());
         startActivity(intent);
+
+
     }
 
 

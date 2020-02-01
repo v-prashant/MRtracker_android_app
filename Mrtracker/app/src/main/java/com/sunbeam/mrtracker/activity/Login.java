@@ -101,8 +101,6 @@ public class Login extends AppCompatActivity {
                         editor.apply();
 
                         finish();
-
-
                         Intent refresh = new Intent(getApplicationContext(), HomeActivity.class);
                         startActivity(refresh);
                         finish();

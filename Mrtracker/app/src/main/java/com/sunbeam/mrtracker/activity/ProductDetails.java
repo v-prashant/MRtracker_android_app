@@ -105,7 +105,10 @@ public class ProductDetails extends AppCompatActivity {
         amount = temp * count;
         textAmount.setText("₹"+amount);
 
+
+
     }
+
 
     public void ondecrement(View view) {
 
@@ -131,13 +134,13 @@ public class ProductDetails extends AppCompatActivity {
         int status = preferences.getInt("login_status",0);
 
 
-
         if(status != 1){
             Toast.makeText(this,"You are not logged in first login yourself",Toast.LENGTH_LONG).show();
         }
         else{
 
 
+            Toast.makeText(getApplicationContext(),"Product is added in your cart",Toast.LENGTH_SHORT).show();
 
             // logic to add product in orderdetails table
             Intent intent = getIntent();
@@ -153,7 +156,7 @@ public class ProductDetails extends AppCompatActivity {
 
             JsonObject body = new JsonObject();
             body.addProperty("Quantity",count);
-            body.addProperty("totalAmount",totalAmount);
+            body.addProperty("totalAmount",amount);
             body.addProperty("totalDiscount",totalDiscount);
             body.addProperty("MRid",MRid);
             body.addProperty("productID",productId);
@@ -167,7 +170,6 @@ public class ProductDetails extends AppCompatActivity {
 
                     if(status.equals("success")){
 
-                        Toast.makeText(getApplicationContext(),"Product is added in your cart",Toast.LENGTH_SHORT).show();
                         finish();
 
                     }

@@ -126,7 +126,7 @@
 
 
         <Button
-            android:backgroundTint="#98fb98"
+            android:backgroundTint="#8fbc8f"
             android:onClick="onAddtoCart"
             android:layout_marginTop="20dp"
             android:layout_marginRight="7dp"
@@ -134,7 +134,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/button"
             android:text="Add to Cart"
-            android:textSize="22dp"
+            android:textSize="16dp"
 
             />
 

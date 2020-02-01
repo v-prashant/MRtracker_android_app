@@ -7,7 +7,6 @@ public class urls {
 
     static String url = "http://192.168.2.10";
 
-
     public static String images(){
         return url + ":4000/";
     }
@@ -39,6 +38,18 @@ public class urls {
 
     public static String CartList(){
         return url + ":4000/MRlogin/addcart";
+    }
+
+    public static String home1(){
+        return  url + ":4000/login/dashboard/product/get";
+    }
+
+    public static String EditInCart() {
+        return url + ":4000/MRlogin/cartEdit";
+    }
+
+    public static String cartDelete() {
+        return url + ":4000/MRlogin/cartDelete";
     }
 
 }

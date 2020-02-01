@@ -16,6 +16,16 @@ router.get('/', (request, response) => {
     })
 })
     
+router.post('/get', (request, response) => {
+    const {productID} = request.body
+    const connection = db.connect1()
+    const statement = ` select * from products where id = ${productID} `
+    connection.query(statement, (error, data) => {
+        connection.end()
+        response.send(utils.createResult(error, data))
+    })
+})
+
 router.post('/',upload.single('image'), (request, response) => {
     const file = request.file.filename
     const {name,price,discount,priceWithDiscount,doseInMG,mgfdate,expiredate,description,categoryid} = request.body

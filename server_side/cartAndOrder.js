@@ -46,7 +46,21 @@ router.put('/cartEdit', (request, response) => {
 })
 
 
-// to delete an item of cart
+// when user is editing his cart product for android
+router.post('/cartEdit', (request, response) => {
+    const {Quantity,totalAmount,totalDiscount,MRid,productID,orderDetailsTableID} = request.body
+    
+    const connection = db.connect1()
+    const statement = `
+    update orderdetails set Quantity=${Quantity},totalAmount=${totalAmount}, totalDiscount=${totalDiscount}, MRid=${MRid}, productID=${productID} where id = ${orderDetailsTableID} `
+    connection.query(statement, (error, data) => {
+        connection.end()
+        response.send(utils.createResult(error, data))
+    })
+})
+
+
+// to delete an item of cart when user is editing his cart
 router.post('/cartDelete', (request, response) => {
    
     const {id} = request.body
@@ -57,6 +71,7 @@ router.post('/cartDelete', (request, response) => {
         response.send(utils.createResult(error, data))
     })
 })
+
 
 // to update orderlist (called when user is confired to order)
 router.put('/cart/confirmorder', (request, response) => {

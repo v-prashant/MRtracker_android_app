@@ -8,7 +8,9 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.Cart"></activity>
+        <activity android:name=".activity.PlaceOrder"></activity>
+        <activity android:name=".activity.EditCart" />
+        <activity android:name=".activity.Cart" />
         <activity android:name=".activity.Signup" />
         <activity android:name=".activity.Login" />
         <activity android:name=".activity.ProductDetails" />

@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 
-
-
 <LinearLayout
 
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -11,32 +9,96 @@
     android:id="@+id/drawerXml"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:layout_margin="16dp"
-    tools:context=".activity.HomeActivity">
+    android:orientation="vertical"
+    tools:context=".activity.Cart">
+
+    <LinearLayout
 
 
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="You total saved:-  "
+                android:textColor="#000000"
+                android:textSize="15dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/totalShaving1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="1000"
+                android:textColor="#0000FF"
+                android:textSize="15dp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Your total amount:-  "
+                android:textColor="#000000"
+                android:textSize="15dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:text="5000"
+                android:id="@+id/totalAmount1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#0000FF"
+                android:textSize="15dp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:onClick="placeorder"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"
+                android:id="@+id/edit"
+                android:textStyle="bold"
+                android:backgroundTint="#8fbc8f"
+                android:background="@drawable/button"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:text="Place order"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerview1"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
-
-
-    <TextView
-        android:text="Hello bosdike"
-        android:textColor="#000000"
-        android:textSize="15dp"
-        android:textStyle="bold"
-        android:id="@+id/name"
-        android:layout_width="100dp"
-        android:layout_height="100dp" />
-
-
-
-
 
 
 </LinearLayout>
