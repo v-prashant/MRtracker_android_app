@@ -4,11 +4,21 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/icon"
+        android:icon="@drawable/icon2"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.PlaceOrder"></activity>
+        <activity android:name=".activity.LoaderActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activity.Send_Feedback" />
+        <activity android:name=".activity.ContactUS" />
+        <activity android:name=".activity.OrderList" />
+        <activity android:name=".activity.PlaceOrder" />
         <activity android:name=".activity.EditCart" />
         <activity android:name=".activity.Cart" />
         <activity android:name=".activity.Signup" />
@@ -18,13 +28,8 @@
         <activity android:name=".activity.Ayurvedic" />
         <activity android:name=".activity.Homoeopathy" />
         <activity android:name=".activity.Allopathic" />
-        <activity android:name=".activity.HomeActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+        <activity android:name=".activity.HomeActivity"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
     </application>
 
 </manifest>

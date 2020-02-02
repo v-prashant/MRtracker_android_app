@@ -219,8 +219,13 @@ public class Cart extends AppCompatActivity implements CartAdapter.ContactAdapte
     public void placeorder(View view) {
         //Toast.makeText(this,"hello",Toast.LENGTH_SHORT).show();
 
-        Intent intent = new Intent(getApplicationContext(),PlaceOrder.class);
-        startActivity(intent);
+        if(products.isEmpty()){
+            Toast.makeText(this,"Your Cart is empty",Toast.LENGTH_SHORT).show();
+        }else {
+            Intent intent = new Intent(getApplicationContext(),PlaceOrder.class);
+            startActivity(intent);
+        }
+
 
     }
 

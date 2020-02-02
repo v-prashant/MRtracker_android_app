@@ -24,8 +24,6 @@
         android:layout_height="185dp">
 
 
-
-
             <TextView
                 android:textColor="#000000"
                 android:textSize="15dp"

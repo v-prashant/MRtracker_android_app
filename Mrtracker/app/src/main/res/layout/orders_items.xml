@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+<LinearLayout
+    android:background=" #ffe4e1"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:layout_width="125dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="Name:- "
+            android:textColor="#000000"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/Name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:textColor="#0000FF"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="125dp"
+            android:layout_height="wrap_content"
+            android:text="Quantity:- "
+            android:textColor="#000000"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/Quantity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#0000FF"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:layout_width="125dp"
+            android:layout_height="wrap_content"
+            android:text="Discount:- "
+            android:textColor="#000000"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/discount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#0000FF"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:layout_width="125dp"
+            android:layout_height="wrap_content"
+            android:text="Amount:- "
+            android:textColor="#000000"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/Amount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#0000FF"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="125dp"
+            android:layout_height="wrap_content"
+            android:text="DR/your Name:- "
+            android:textColor="#000000"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/drname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#0000FF"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:layout_width="125dp"
+            android:layout_height="wrap_content"
+            android:text="PhoneNo:- "
+            android:textColor="#000000"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/phoneno"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#0000FF"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="125dp"
+            android:layout_height="wrap_content"
+            android:text="Payment Mode:- "
+            android:textColor="#000000"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/paymentMode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#0000FF"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:layout_width="125dp"
+            android:layout_height="wrap_content"
+            android:text="Order Date:- "
+            android:textColor="#000000"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+
+        <TextView
+
+            android:id="@+id/OrderDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#0000FF"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:layout_width="125dp"
+            android:layout_height="wrap_content"
+            android:text="Delivery Date:- "
+            android:textColor="#000000"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+
+        <TextView
+
+            android:id="@+id/DeliveryDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#0000FF"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="125dp"
+            android:layout_height="wrap_content"
+            android:text="Delivery Status:- "
+            android:textColor="#000000"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/deliveryStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="125dp"
+            android:layout_height="wrap_content"
+            android:text="full Address:- "
+            android:textColor="#000000"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/FullAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#0000FF"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+
+</LinearLayout>
+
+</LinearLayout>

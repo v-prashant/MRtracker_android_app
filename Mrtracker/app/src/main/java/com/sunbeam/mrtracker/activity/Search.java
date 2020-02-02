@@ -65,7 +65,6 @@ import java.util.ArrayList;
     }
 
 
-
     protected void onResume() {
         super.onResume();
         loadproducts();

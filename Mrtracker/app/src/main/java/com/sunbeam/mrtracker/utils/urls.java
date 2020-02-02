@@ -5,7 +5,8 @@ package com.sunbeam.mrtracker.utils;
 public class urls {
 
 
-    static String url = "http://192.168.2.10";
+
+    static String url = "http://192.168.0.103";
 
     public static String images(){
         return url + ":4000/";
@@ -51,6 +52,15 @@ public class urls {
     public static String cartDelete() {
         return url + ":4000/MRlogin/cartDelete";
     }
+
+    public static String confirmToOrder() {
+        return url + ":4000/MRlogin/cart/confirmorder";
+    }
+
+    public static String listOfOrders() {
+        return url + ":4000/MRlogin/orders";
+    }
+
 
 }
 

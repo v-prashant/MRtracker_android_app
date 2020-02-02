@@ -218,7 +218,14 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             return true;
         }
         else if(item.getTitle().equals("My Oredrs")){
-            Toast.makeText(this,"My orders",Toast.LENGTH_SHORT).show();
+
+            if(status == 1){
+                Intent intent = new Intent(this,OrderList.class);
+                startActivity(intent);
+            }else{
+                Toast.makeText(this,"You need first logged in",Toast.LENGTH_SHORT).show();
+            }
+
         }
         else if(item.getTitle().equals("My Cart")){
 
@@ -295,6 +302,12 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         }
         else if(item.getItemId() == R.id.ayurvedic){
             Intent intent = new Intent(this,Ayurvedic.class);
+            startActivity(intent);
+        }else if(item.getItemId() == R.id.contactUs){
+            Intent intent = new Intent(this,ContactUS.class);
+            startActivity(intent);
+        }else if(item.getItemId() == R.id.sendFeedback){
+            Intent intent = new Intent(this,Send_Feedback.class);
             startActivity(intent);
         }
 
