@@ -1,7 +1,9 @@
 package com.sunbeam.mrtracker.activity;
 
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -37,15 +39,24 @@ public class Send_Feedback extends AppCompatActivity {
 
     public void sendfeedback(View view) {
 
-        EditText text = findViewById(R.id.feedback);
-        String text1 = text.getText().toString();
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        int status = preferences.getInt("login_status",0);
 
-        if(text1.length() < 50 ){
-            Toast.makeText(this,"length of character should be atleast 50",Toast.LENGTH_SHORT).show();
+        if(status == 1){
+            EditText text = findViewById(R.id.feedback);
+            String text1 = text.getText().toString();
+
+            if(text1.length() < 50 ){
+                Toast.makeText(this,"length of character should be atleast 50",Toast.LENGTH_SHORT).show();
+            }
+            else{
+                Toast.makeText(this,"Your feedback has been sent",Toast.LENGTH_SHORT).show();
+                finish();
+            }
+        }else{
+            Toast.makeText(this,"You need to first logged in",Toast.LENGTH_SHORT).show();
         }
-        else{
-            Toast.makeText(this,"Your feedback has been sent",Toast.LENGTH_SHORT).show();
-            finish();
-        }
+
     }
+
 }
